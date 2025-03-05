@@ -1,0 +1,238 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            
+        }
+        label{
+            font-weight:bold;
+        }
+        .container {
+            background: white;
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background:rgb(101, 114, 104);
+            color:#fff;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+    <title>Student Performance System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body  style="background: url('{% static 'thelab.jpg' %}')">
+
+<nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">Student Performance System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'predict_cgpa' %}">CGPA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'predict' %}">Performance Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="">Student Aid</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">📌 10 Reasons Why Students Fail & How to Overcome Them</h2>
+
+    <div class="accordion" id="failureReasons">
+        
+        <!-- Reason 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    1️⃣ Lack of Effective Study Habits
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Many students do not have a structured study plan or revision techniques.<br>
+                    <strong>Recommendation:</strong> Follow a well-planned study timetable, use active recall methods, and eliminate distractions while studying.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    2️⃣ Poor Time Management
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Procrastination and lack of prioritization lead to last-minute cramming.<br>
+                    <strong>Recommendation:</strong> Use a planner or apps like Notion or Google Calendar to manage time effectively.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    3️⃣ Low Motivation & Lack of Goals
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Without clear academic goals, students lack motivation to succeed.<br>
+                    <strong>Recommendation:</strong> Set SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound) and track progress.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                    4️⃣ Skipping Classes & Poor Attendance
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Missing lectures leads to gaps in understanding key concepts.<br>
+                    <strong>Recommendation:</strong> Attend all classes, actively participate, and take proper notes.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 5 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                    5️⃣ Negative Peer Influence
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Being surrounded by unmotivated or distracted peers can impact academic performance.<br>
+                    <strong>Recommendation:</strong> Choose friends who encourage good study habits and academic excellence.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 6 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                    6️⃣ Lack of Resources & Poor Learning Environment
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Students struggle due to limited access to study materials or poor learning environments.<br>
+                    <strong>Recommendation:</strong> Use online learning platforms like Coursera, Khan Academy, and Google Scholar for extra learning.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 7 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
+                    7️⃣ Test & Exam Anxiety
+                </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Stress and fear of failure can negatively impact performance in exams.<br>
+                    <strong>Recommendation:</strong> Practice mindfulness, deep breathing techniques, and attempt past question papers to gain confidence.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 8 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEight">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight">
+                    8️⃣ Over-Reliance on Cramming Instead of Understanding
+                </button>
+            </h2>
+            <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Memorization without understanding leads to forgetting concepts quickly.<br>
+                    <strong>Recommendation:</strong> Focus on deep learning strategies such as concept mapping and the Feynman technique.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 9 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNine">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine">
+                    9️⃣ Health Issues & Poor Sleep Habits
+                </button>
+            </h2>
+            <div id="collapseNine" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Lack of sleep and poor health can reduce concentration and productivity.<br>
+                    <strong>Recommendation:</strong> Get at least 7-8 hours of sleep and maintain a healthy diet.
+                </div>
+            </div>
+        </div>
+
+        <!-- Reason 10 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
+                    🔟 Failure to Ask for Help
+                </button>
+            </h2>
+            <div id="collapseTen" class="accordion-collapse collapse" data-bs-parent="#failureReasons">
+                <div class="accordion-body">
+                    <strong>Reason:</strong> Many students struggle because they don’t seek help when needed.<br>
+                    <strong>Recommendation:</strong> Ask teachers, join study groups, or seek tutoring support when topics are unclear.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

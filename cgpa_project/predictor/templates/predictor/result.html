@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome | Student Performance Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Gradient Background */
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Glassmorphic Container */
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: white;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+        }
+
+        /* Styling for Result & Error Boxes */
+        .result, .error {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .result {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Styled Button */
+        .btn-custom {
+            background: #ff758c;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            transform: scale(1.05);
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🎓 Welcome to the Student Performance Predictor</h2>
+    <p>Based on your entered input here is your result</p>
+
+    {% if prediction %}
+        <div class="result">Predicted Performance: <strong>{{ prediction }}</strong></div>
+    {% endif %}
+
+    {% if error %}
+        <div class="error">Error: <strong>{{ error }}</strong></div>
+    {% endif %}
+
+    <a href="{% url 'predict' %}" class="btn btn-secondary mt-3 mr-2"><< Back to OSP</a>
+    <a href="{% url 'predict_cgpa' %}" class="btn btn-secondary mt-3"><< Back to CGPA</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
