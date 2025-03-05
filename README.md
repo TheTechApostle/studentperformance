@@ -24,5 +24,13 @@ with open("re_performance_model.pkl", "rb") as rate_model_file:
 
 with open("re_encoders.pkl", "rb") as rate_encoder_file:
     rate_encoders = pickle.load(rate_encoder_file)
+```
 
+### Start project
+``` python
+
+django-admin startproject student_performance
+cd student_performance
+python manage.py startapp predictor
+```
 
